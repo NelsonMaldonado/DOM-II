@@ -13,17 +13,19 @@ contactLink.textContent = 'Call me!';
 const headerBG = document.querySelector('header');
 const letsGo = document.querySelector('section h2');
 console.log(letsGo);
-const button1 = document.createElement('button');
-button1.textContent = 'Click me LOL';
-document.head.prepend(button1);
-button1.style.position = 'center';
+
 const pictureOne = document.querySelector('section img');
 const pictureTwo = document.querySelector('.img-fluid');
 console.log(pictureOne)
 const sectionThree = document.querySelector('section:nth-of-type(3)');
 const imageBoat = document.querySelector('section:nth-of-type(3) img');
 console.log(imageBoat);
-
+const button1 = document.querySelector('.btn:nth-of-type(1)');
+console.log(button1); 
+const button2 = document.querySelector('.second-div');
+console.log(button2);
+const button3 = document.querySelector('.third-div');
+const footer1 = document.querySelector('.footer');
 // Your code goes here
 //1st
 window.onload = function (event){
@@ -31,8 +33,9 @@ window.onload = function (event){
 };
 
 //2nd
-function changeColor(){
+function changeColor(e){
     console.log('Change color');
+    e.stopPropagation();
     document.body.style.backgroundColor = 'red';
     
 }
@@ -42,8 +45,9 @@ changeLink.addEventListener('click',changeColor);
 // body.append()
 
 //3rd
-function changeImageFunc(){
+function changeImageFunc(e){
 console.log('This changed the bus image');
+e.stopPropagation();
 busImage.setAttribute('src', 'https://cdn.hiconsumption.com/wp-content/uploads/2020/02/20-Fastest-Cars-FB.jpg');
 }
 imgLink.addEventListener('click',changeImageFunc);
@@ -130,3 +134,45 @@ imageBoat.classList.toggle('scaleUp');
     }, 300);
 }
 imageBoat.addEventListener('dblclick', shrink);
+
+//8th rotate buttons
+function rotateFunc(){
+    setTimeout(function(){
+button1.style.transform = "rotate(45deg)";
+button1.textContent = 'WFT?';
+button2.style.transform = "rotate(10deg)"
+    },100);
+}
+button1.addEventListener('mouseenter',rotateFunc);
+
+// 9th rotate all buttons back to zero
+function resetAll(){
+    console.log('this click resets all the buttons back');
+    setTimeout(function(){
+button1.style.transform = "rotate(0deg)";
+button2.style.transform = "rotate(180deg)";
+button2.textContent = `I'm upside down!`;
+    },200);
+}
+
+button2.addEventListener('mouseenter',resetAll);
+
+function resetButtons(){
+    setTimeout(function(){
+button1.style.transform = "rotate(0deg)";
+button2.style.transform = "rotate(360deg)";
+button2.textContent = `I'm back to normal :)`;
+button3.style.backgroundColor = "green";
+    },200);
+}
+button3.addEventListener('mouseenter', resetButtons);
+
+//10th copyright
+function changeName (){
+    footer1.textContent = "Nelson M 2021"
+    footer1.style.fontSize = '12em';
+    footer1.style.backgroundColor = 'dodgerblue';
+    footer1.style.color = 'white';
+}
+footer1.addEventListener('mouseenter', changeName);
+
