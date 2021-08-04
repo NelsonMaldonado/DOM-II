@@ -21,8 +21,8 @@ const pictureOne = document.querySelector('section img');
 const pictureTwo = document.querySelector('.img-fluid');
 console.log(pictureOne)
 const sectionThree = document.querySelector('section:nth-of-type(3)');
-
-
+const imageBoat = document.querySelector('section:nth-of-type(3) img');
+console.log(imageBoat);
 
 // Your code goes here
 //1st
@@ -122,3 +122,11 @@ function pinkBG (){
 }
 
 sectionThree.addEventListener('mouseenter',pinkBG)
+
+//8th shrink boat
+function shrink(){
+    setTimeout(function(){
+imageBoat.classList.toggle('scaleUp');
+    }, 300);
+}
+imageBoat.addEventListener('dblclick', shrink);
