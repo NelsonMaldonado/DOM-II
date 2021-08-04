@@ -1,6 +1,5 @@
 //constants 
 const busImage = document.querySelector('.intro img');
-console.log(busImage);
 const funBus = document.querySelector('h1');
 funBus.textContent = 'Fun Bus, Explore my buttons'
 const homeLink = document.querySelector('nav a:nth-of-type(1)');
@@ -12,6 +11,18 @@ imgLink.textContent = 'Change IMG';
 const contactLink = document.querySelector("nav a:nth-of-type(4)");
 contactLink.textContent = 'Call me!';
 const headerBG = document.querySelector('header');
+const letsGo = document.querySelector('section h2');
+console.log(letsGo);
+const button1 = document.createElement('button');
+button1.textContent = 'Click me LOL';
+document.head.prepend(button1);
+button1.style.position = 'center';
+const pictureOne = document.querySelector('section img');
+const pictureTwo = document.querySelector('.img-fluid');
+console.log(pictureOne)
+const sectionThree = document.querySelector('section:nth-of-type(3)');
+
+
 
 // Your code goes here
 //1st
@@ -64,5 +75,50 @@ function resetTitle(){
 funBus.addEventListener('mouseenter', newTitle);
 funBus.addEventListener('mouseleave', resetTitle);
 
+//7th Let's go hover over
+function changeLetsGo(){
+    console.log('hovered over lets go');
+    letsGo.textContent = 'Stop!'
+}
+function stopText(){
+    console.log('left lets go');
+    letsGo.textContent = 'Come back!';
+}
+letsGo.addEventListener('mouseenter',changeLetsGo);
+letsGo.addEventListener('mouseleave', stopText);
 
-// 6th Click me lol
+
+// 6th Dissapear pictures
+function lost(){
+    console.log('picture one hover over');
+    pictureOne.classList.toggle('off');
+}
+function recover(){
+   setTimeout (function()
+   {pictureOne.classList.toggle('off')}, 350);
+}
+
+function lost2(){
+    console.log('picture one hover over');
+    pictureTwo.classList.toggle('off');
+}
+function recover2(){
+   setTimeout (function()
+   {pictureTwo.classList.toggle('off')}, 350);
+}
+pictureOne.addEventListener('mouseenter', lost);
+pictureOne.addEventListener('mouseleave', recover)
+
+pictureTwo.addEventListener('mouseenter', lost2);
+pictureTwo.addEventListener('mouseleave',recover2)
+
+//7th section pink
+
+function pinkBG (){
+    setTimeout(function(){
+        console.log('bg changed')
+        sectionThree.classList.toggle('bgColor');
+    },100);
+}
+
+sectionThree.addEventListener('mouseenter',pinkBG)
